@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" href="skin/default.css" />
+		<style>
+			button{padding: 4px 8px; margin-top: 40px;}
+			.formGroup{margin-bottom: 20px;}
+			input {font-size: 20px;}
+		</style>
+	</head>
+	<body>
+		<div>样式可在皮肤文件中自定义修改</div>
+		radio标签：
+		<div id="sex" class="formGroup">
+			<label >性别：</label>
+			<label>
+				<input name="sex" type="radio" suform value="2" /><span>男</span>
+			</label>
+			<label>
+				<input name="sex" type="radio" suform value="1" /><span>女</span>
+			</label>
+
+		</div>
+		
+		cheackBox标签：
+		<div id="love" class="formGroup">
+			<label >爱好：</label>
+			<label>
+				<input name="love" type="checkbox" suform value="1" /><span>吃</span>
+			</label>
+			<label>
+				<input name="love" type="checkbox" suform value="2" /><span>睡</span>
+			</label>
+			<label>
+				<input name="love" type="checkbox" suform value="3" /><span>玩</span>
+			</label>
+		</div>
+		
+		<button id="data-add">数据变更</button>
+		<button id="data-re">重新渲染</button>
+		<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script type="text/javascript" src="suform.js" ></script>
+		<script type="text/javascript">
+			$("#data-add").on('click', function(){
+				$("#love").append(
+					'<label><input name="love" type="checkbox" suform value="4" /><span>乐</span></label>'
+				);
+
+				$("#sex").append(
+					'<label><input name="sex" type="radio" suform value="3" /><span>未知</span></label>'
+				);
+			})
+
+			$("#data-re").on('click', function(){
+				suform.update();
+			})
+			
+		</script>
+	</body>
+</html>
