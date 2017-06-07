@@ -1,3 +1,10 @@
+/*!
+ * suform.js v0.1.0 bate
+ * (c) 2017 writethesky（撰天）
+ * Released under the MIT License.
+ * https://github.com/writethesky
+ * https://github.com/writethesky/application.js
+ */
 (function(w){
 	class suformClass{
 		//构造
