@@ -28,3 +28,38 @@
 }
 
 
+/* 下拉列表框样式 */
+.suform[data-type="select"] {
+	display: inline-block;
+	width: 1px;
+	overflow: visible;
+    align-items: center;
+}
+
+.suform-selected[data-type="select"] {
+	cursor: pointer;
+	position: relative;
+}
+
+.suform-item[data-type="select"] {
+	padding: 3px;
+	cursor: pointer;
+}
+.suform-item-box[data-type="select"] {
+	position: absolute;
+	background: #fff;
+	margin-top: -1px;
+	display: none;
+}
+
+.suform-item.suform-hover[data-type="select"] {
+	background: green;
+	color: #fff;
+}
+
+.suform-icon-box[data-type="select"] {
+	position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}

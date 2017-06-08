@@ -8,7 +8,8 @@
 
 			this.domArr = {
 				radio: [],
-				checkbox: []
+				checkbox: [],
+				select: []
 			}
 			var _this = this;
 		    $("input[suform]").each(function(){
@@ -22,6 +23,11 @@
 		    			_this.domArr.checkbox.push(this);
 		    		break;
 		    	}
+		    });
+
+		    $("select[suform]").each(function(){
+		    	_this.renderSelect(this);
+		    	_this.domArr.select.push(this);
 		    });
 		}
 		
@@ -87,6 +93,86 @@
 			 		_this.renderCheckBox(_this.domArr.checkbox[i]);
 			 	}
 		 	});
+		}
+
+		// select 渲染引擎
+		renderSelect(dom){
+			var _this = this;
+
+			$(dom).hide();
+
+			if('select' == $(dom).next().attr('data-type')){
+				$(dom).next().remove();
+			}
+
+			var selectDom = $('<div />').addClass('suform').attr({'data-type': 'select'});
+			var oldStyle = window.getComputedStyle(dom);
+			var computedStyle = {};
+			for(var i in oldStyle){
+				if(-1 != $.inArray(i, ['background', 'width', 'height', 'border', 'boxSizing', 'font', 'padding', 'margin', 'left', 'right', 'top', 'bottom', 'zIndex'])){
+					// if(i == 'background')
+					computedStyle[i] = oldStyle[i];
+				}
+			}
+			console.log(computedStyle);
+			var selectedDom = $('<div />').attr({'data-type': 'select'}).css(computedStyle).css({lineHeight: computedStyle.height}).addClass("suform-selected");
+			var itemBoxDom = $('<div />').addClass('suform-item-box')
+										 .attr({'data-type': 'select'})
+										 .css({width: computedStyle.width, border: computedStyle.border, font: computedStyle.font, boxSizing: computedStyle.boxSizing});
+
+			selectedDom.off('click').on('click', function(){
+				itemBoxDom.toggle();
+			})
+			setSelectedOption(dom, selectedDom);
+
+			
+
+			$(dom).find("option").each(function(i){
+				var itemDom = $('<div />').text($(this).text())
+										  .addClass('suform-item')
+										  .attr({'data-type': 'select', 'index': i});
+				itemBoxDom.append(itemDom);
+
+				
+				itemDom.off('click').on('click', function(){
+					selectedDom.click();
+					$(dom).find('option').eq($(this).attr('index')).prop({selected: true});
+					setSelectedOption(dom, selectedDom);
+					
+					// selectedDom.click();
+				})
+			});
+
+			$(itemBoxDom).find('.suform-item').on("mouseover", function(){
+				$(this).addClass('suform-hover');
+			});
+			$(itemBoxDom).find('.suform-item').on("mouseout", function(){
+				$(this).removeClass('suform-hover');
+			});
+
+			selectDom.append(selectedDom);
+			selectDom.append(itemBoxDom);
+		 	
+		 	$(dom).after(selectDom);
+
+		 	// 渲染选中的option的选项
+		 	function setSelectedOption(dom, selectedDom){
+				var selectedOption = $(dom).find("option:selected");
+
+				if(0 == selectedOption.length){
+					
+					if(0 == $(dom).find("option")){
+						selectedOption = $("<option />");
+					}else{
+						selectedOption = $($(dom).find("option").get(0));
+					}
+
+					
+				}
+				selectedDom.html("<span>" + selectedOption.text() + "</span>");
+				selectedDom.append('<div class="suform-icon-box" data-type="select"><svg t="1496920007097" class="suform-icon" style="" viewBox="0 0 1024 1024" version="1.1" p-id="2913" width="200" height="200"><path d="M518.4 697.601l313.6-310.4c12.8-12.8 12.8-31.999 0-44.799s-31.999-12.8-44.799 0l-288 288-288-288c-12.8-12.8-31.999-12.8-44.799 0-6.4 6.4-9.6 16-9.6 22.4 0 9.6 3.2 16 9.6 22.4l310.4 310.4c6.4 6.4 12.8 9.6 22.4 9.6s12.8-3.2 19.2-9.6z" p-id="2914"></path></svg></div>');
+		 	}
+		 	
 		}
 
 		update(){

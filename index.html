@@ -8,6 +8,14 @@
 			button{padding: 4px 8px; margin-top: 40px;}
 			.formGroup{margin-bottom: 20px;}
 			input {font-size: 20px;}
+			select {
+				width: 200px;
+				padding: 0 5px;
+				height: 50px;
+				line-height: 50px;
+				border: 1px solid #673ab7;
+				font-size: 30px;
+			}
 		</style>
 	</head>
 	<body>
@@ -38,6 +46,19 @@
 			</label>
 		</div>
 		
+		select标签：
+		<div id="job" class="formGroup">
+			<label >职业：</label>
+			<select suform>
+				<option value="1">运动员</option>
+				<option value="1">IT</option>
+				<option value="1">美容美发</option>
+				<option value="1">农民</option>
+				<option value="1">自由职业者</option>
+				<option value="1">无业</option>
+			</select>
+		</div>
+		
 		<button id="data-add">数据变更</button>
 		<button id="data-re">重新渲染</button>
 		<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -50,6 +71,10 @@
 
 				$("#sex").append(
 					'<label><input name="sex" type="radio" suform value="3" /><span>未知</span></label>'
+				);
+
+				$('#job select').append(
+					'<option value="1">猎人</option>'
 				);
 			})
 
