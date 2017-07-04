@@ -1,0 +1,38 @@
+{
+  "name": "suform",
+  "version": "1.0.0",
+  "description": "表单美化控件",
+  "main": "index.js",
+  "dependencies": {
+    "jquery": "^3.2.1"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.24.1",
+    "grunt": "^1.0.1",
+    "grunt-babel": "^6.0.0",
+    "grunt-contrib-uglify": "^3.0.1",
+    "webpack": "^3.0.0",
+    "webpack-dev-server": "^2.5.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --env=dev --progress --profile --colors"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/writethesky/suform.git"
+  },
+  "keywords": [
+    "radio",
+    "input",
+    "check",
+    "select",
+    "form"
+  ],
+  "author": "writethesky",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/writethesky/suform/issues"
+  },
+  "homepage": "https://github.com/writethesky/suform#readme"
+}

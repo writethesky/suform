@@ -5,7 +5,16 @@
  * https://github.com/writethesky
  * https://github.com/writethesky/application.js
  */
-(function(w){
+'use strict';
+(function(w, factory){
+	if ( typeof module === "object" && typeof module.exports === "object" ) {
+		module.exports = factory(w, true);
+	}else{
+		factory(w, false);
+	}
+})(window, function(w, noGlobal){
+	
+	
 	class suformClass{
 		//构造
 		constructor(){
@@ -121,7 +130,7 @@
 					computedStyle[i] = oldStyle[i];
 				}
 			}
-			console.log(computedStyle);
+
 			var selectedDom = $('<div />').attr({'data-type': 'select'}).css(computedStyle).css({lineHeight: computedStyle.height}).addClass("suform-selected");
 			var itemBoxDom = $('<div />').addClass('suform-item-box')
 										 .attr({'data-type': 'select'})
@@ -190,6 +199,13 @@
 		 
 
 	}
+	
+	var suformClassEg = new suformClass();
+	
+	if(!noGlobal){
+		w.suform = suformClassEg;
+	}
+	
+	return suformClassEg;
 
-	w.suform = new suformClass();
-}(window));
+})

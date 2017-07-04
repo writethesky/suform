@@ -14,6 +14,7 @@ jquery 2.1.4+
 # 使用
 
 
+## 普通引入
 
 * 引入jQuery文件
 
@@ -24,6 +25,10 @@ jquery 2.1.4+
 
 * 引入皮肤文件
 `<link rel="stylesheet" href="skin/default.css" />`
+
+## npm引入
+
+`import suform from 'node_modules/suform/dist/suform.js';`
 
 * 在需要美化的表单元素中，添加 `suform` 属性
 

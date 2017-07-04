@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<title></title>
-		<link rel="stylesheet" href="skin/default.css" />
+		<link rel="stylesheet" href="../../skin/default.css" />
 		<style>
 			button{padding: 4px 8px; margin-top: 40px;}
 			.formGroup{margin-bottom: 20px;}
@@ -61,26 +61,10 @@
 		
 		<button id="data-add">数据变更</button>
 		<button id="data-re">重新渲染</button>
-		<script src="node_modules/jquery/dist/jquery.min.js"></script>
-		<script type="text/javascript" src="src/suform.js" ></script>
+		<script src="/node_modules/jquery/dist/jquery.min.js"></script>
+		<script type="text/javascript" src="../../bundle.js" ></script>
 		<script type="text/javascript">
-			$("#data-add").on('click', function(){
-				$("#love").append(
-					'<label><input name="love" type="checkbox" suform value="4" /><span>乐</span></label>'
-				);
 
-				$("#sex").append(
-					'<label><input name="sex" type="radio" suform value="3" /><span>未知</span></label>'
-				);
-
-				$('#job select').append(
-					'<option value="1">猎人</option>'
-				);
-			})
-
-			$("#data-re").on('click', function(){
-				suform.update();
-			})
 			
 		</script>
 	</body>

@@ -1,0 +1,66 @@
+
+.suform-icon {
+	width: 1em; height: 1em;
+	vertical-align: -0.15em;
+	fill: currentColor;
+	overflow: hidden;
+	color: #000;
+	
+}
+
+
+
+/* 单选框样式 */
+.suform-icon[data-type="radio"] {
+	color: #15c3ac;
+}
+
+.suform-icon[data-type="radio"] .selected {
+	color: #15c3ac;
+}
+
+/* 复选框样式 */
+.suform-icon[data-type="checkbox"] {
+	color: #15c3ac;
+}
+
+.suform-icon[data-type="checkbox"] .selected {
+	color: #15c3ac;
+}
+
+
+/* 下拉列表框样式 */
+.suform[data-type="select"] {
+	display: inline-block;
+	width: 1px;
+	overflow: visible;
+    align-items: center;
+}
+
+.suform-selected[data-type="select"] {
+	cursor: pointer;
+	position: relative;
+}
+
+.suform-item[data-type="select"] {
+	padding: 3px;
+	cursor: pointer;
+}
+.suform-item-box[data-type="select"] {
+	position: absolute;
+	background: #fff;
+	margin-top: -1px;
+	display: none;
+}
+
+.suform-item.suform-hover[data-type="select"] {
+	background: green;
+	color: #fff;
+}
+
+.suform-icon-box[data-type="select"] {
+	position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
