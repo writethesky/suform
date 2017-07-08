@@ -4,7 +4,7 @@ module.exports = function (grunt) {
     pkg: grunt.file.readJSON('package.json'),
     uglify: {
       options: {
-        banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> \n * suform.js v0.1.0 \n * (c) 2017 writethesky（撰天）\n * Released under the MIT License. \n * https://github.com/writethesky \n * https://github.com/writethesky/application.js */'
+        banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> \n * suform.js v1.0.2 \n * (c) 2017 writethesky（撰天）\n * Released under the MIT License. \n * https://github.com/writethesky \n * https://github.com/writethesky/application.js */'
       },
       build: {
         src: 'dist/<%=pkg.name %>.js',

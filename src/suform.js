@@ -1,5 +1,5 @@
 /*!
- * suform.js v0.1.0 bate
+ * suform.js v1.0.2 bate
  * (c) 2017 writethesky（撰天）
  * Released under the MIT License.
  * https://github.com/writethesky
@@ -16,7 +16,7 @@
 	
 	
 	class suformClass{
-		//构造
+		//构造 
 		constructor(){
 			this.init();
 		}
@@ -154,7 +154,7 @@
 					selectedDom.click();
 					$(dom).find('option').eq($(this).attr('index')).prop({selected: true});
 					setSelectedOption(dom, selectedDom);
-					
+					$(dom).change();
 					// selectedDom.click();
 				})
 			});
